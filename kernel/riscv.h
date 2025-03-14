@@ -383,6 +383,8 @@ typedef uint64 *pagetable_t; // 512 PTEs
 // that have the high bit set.
 #define MAXVA (1L << (9 + 9 + 9 + 12 - 1))
 
+#ifndef __ASSEMBLER__
 static inline void fence() {
     asm volatile("fence" : : : "memory");
 }
+#endif // __ASSEMBLER__
